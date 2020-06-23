@@ -1,0 +1,15 @@
+Daniela De La Torre
+March 31, 2020
+Lab1-Unix/Linux Commands and Basic Shell Programming
+
+Part 1 Observations:
+the first code given to us prints all of my directories 
+it also prints the location of my home directory followed by my username followed by the path. After that it prints the location of where I am in my directory. Finally, it prints "Hi ddelator! There are        2 users logged on.
+Check who logged in!"
+
+Part 2 Observations:
+to fix this part of the code to tell me I could proceed, i modified the if else statement to print "Now you can proceed if the user isn't "salagtash".
+Now that it doesn't exit, the program asks for the height and width of a rectangle and it calculates the area.
+
+Part 3 Observations:
+In order to make the program print the area of a circle, I put the value of 3.14159 in a variable called pi and in order to make the area a floating point value, i used bc which acts as a command line calculator that works for floating point numbers and I used the pipeline symbol | to connect the standard output of what's in quotes to the input of the bc and that value is stored in the variable area. 
