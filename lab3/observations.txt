@@ -1,0 +1,24 @@
+Daniela De La Torre
+April 14, 2020
+Lab3-pthreads and inter-process communication-pipes
+
+Part1 Observations:
+This part of the lab makes the output of the ls comand become the input of the child executing the more process so that each file outputted by the ls command is printed line by line
+
+Part2 Observations:
+This part of the lab writes each argument passed to the main function to the upstream end of the pipe and then the other child function reads this information from the pipe and writes it to the buffer which is then written to standard output/printed to the screen. It is printed character by character, where each character is followed by a space.
+
+Part3 Observations:
+This part of the lab has the ls command being put into the upstream end of the pipe and then the other child process reads from the pipe and writes it to a buffer. The buffer is then written character by character to the standard output where each character is followed by a space
+
+Part4 Observations:
+This part of the lab finds the word root and pritns it to the screen. This function does the same as cat /etc/passwd | grep root. cat /etc/passwd is executed by one child and then the other child reads from the pipe and executes grep root
+
+Part5 Observations:
+This part of the lab takes a message from the producer and writes it to the upstream ennd of the pipe. The other child process then reads from the downstream end and stores it to a buffer which is then written to the standard output.
+
+Part6 Observations:
+This part of the lab creates 10 threads which execute the go function and print the thread number and address. The problem with this code is that each thread does not have a unque number. The thread numbers are 0,1,3,4,5,6,7,8,9 and 2 is not printed. The reason why this code doesn't work is because the address of i is passed and all the threads share memory so when each thread prints i it prints the value at that address, allowing the same value of i to be printed for multiple threads.
+
+Part7 Observations:
+This part of the lab does the same as part 6 but each thread prints a unique thread number. This is because instead of passing the address of i, I passed a pointer to i which passes the exact value of i. 

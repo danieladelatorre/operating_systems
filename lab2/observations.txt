@@ -1,0 +1,19 @@
+Daniela De La Torre
+April 7, 2020
+Lab 2-Programming in C and use of System Calls
+The following are my observations of what happened in each part of the lab
+
+Part 1 Observations:
+when I try to compile this part of the lab by typing './part1' I get the error "segmentation fault (core dumped)" This is because the program is trying to access argv[1] and there is no argv[1].
+when I run the program with the command line argument 3000, the program prints "child process " followed by the process number and then the next line is "parent process" followed by the process number. Then it prints the child process ...etc.
+When i run the program with command line aargument 500, the program runs faster but sometimes it prints two child processes followed by two parent processes instead of one after the other. This is probably because of how the CPU schedules the order of all the processes.
+When I run the program with the command line argument 5000, it runs slower than the other onesand it prints in the same as the first one where the parent and child processes directly follow one another.
+
+Part 2 Observations:
+for part 2, I kept track of the number of children each parent process had and if a parent had only one child, then i would have it fork(). In my program, the parent would have two children and then each of its children would have two other children.
+
+Part 3 Observations:
+This part of of the lab, I used two threads to print the child and process statements. The order in which the statements are printed are less consistent, so it prints two child processes followed by two parent processes a lot instead of having one process right after the other. I also think this is due to how the CPU schedules the threads to run.
+
+Part 4 Observations:
+This program has the child process print all the files in the directory I am in and the parent prints "Child complete" when the child process is done. 
