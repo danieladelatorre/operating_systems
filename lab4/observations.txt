@@ -1,0 +1,15 @@
+Daniela De La Torre
+April 21, 2020
+Lab4-developing multithreaded applications
+				Observations
+part1 Observations:
+This part of the lab prints "Hello from *thread number* thread" but the thread number is not unique because some thread numbers repeat for multiple threads. It then prints that the thread returned. When I run it multiple times, the output is not the same. The parameter i in main that is passed to the function go is per shared state because each thread that accesses it is accessing the same part of memory. I think this is stored in the program's heap i think. 
+
+The argument received by the function go is per thread because the thread takes in the argument and makes a copy and stores it in the threads stack. Each thread has its own stack for which it stores these arguments passed to it.
+
+
+Part 2 Observations:
+This one prints the same as the first function printing Hello from thread followed by the thread number. The thread number is not unique because the address of i is passed and for this part, the main thread prints that it is done before the other threads finish executing. This is because the pthread_join is gone and that is what makes sure that all the threads finish before the main program can continue whatever comes after the pthread_join.
+
+Part 3 Observations:
+This part of the lab prints the result of doing matrix multiplication. There are N threads created (N=1024) and each thread computes values for each row of the matrix. 

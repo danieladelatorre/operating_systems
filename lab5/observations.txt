@@ -1,0 +1,17 @@
+Daniela De La Torre
+April 27, 2020
+Lab 5: synchronization using semaphores, lock, and condition variables 
+Description: these are the observations for all parts of the lab.
+
+Part 1 Observations:
+This part of the lab prints if the specific thread entered the critical section and then in the main function it prints that that thread returned. This program is different from threadHello.c because only one thread is allowed into the critical section at a time. This makes the program more deterministic of what the output is.
+
+Part 2 Observations:
+this part of the lab uses mutex locks to implement synchronization. The main function creates 10 threads that are supposed to execute the go function. In the go function, the mutex object m is locked allowing only that thread to execute the critical section. The other threads must wait until m is unlocked. After executing the critical section, the thread unlocks the mutex object m so that other threads may now enter the thread.  
+
+Part 3 Observations:
+*Description: This part of the lab allows for synchronization using sempahores. At the beginning of the main function, I have a sem_unlink to remove the semaphores mutex, full, and empty so that in the case
+ exit using control C, everything gets cleaned up and there is no starvation that occurs because the previous threads didn't increment the mutex. It creates 5 threads that go to the producer function which waits for there to be an empty slot in the buffer (represented by the semaphore empty) and then tries to lock the mutex. Once it's able to lock the mutex, it executes the critical section and it generates a random number and puts it in the buffer. At the end of the producer function, it updates the semaphore full to indicate theres another value in the buffer and then it increments the mutex to unlock it. There are threads that also go to the consumer function which waits for there to be a value in the buffer and it waits for the mutex to be unlocked. If unlocked it executes the critical section and stores the value in the buffer into a variable called read. It then signals the mutex and the semaphore empty to unlock the mutex and increment the value of empty. 
+ 
+Observations:
+cription: this part of the lab uses locks and condition variables to allow synchronization in this producer consumer program. The main function creates four threads that each go to the producer and consumer functions. When a function executes the producer function, it locks the mutex and if the buffer is full, it unlocks the mutex and waits for the condition variable empty to be signaled. Once signaled, it executes the critical section and produces a random number and inserts it in the buffer at position in. It then increments the value of in and the count size. We need a count size because the condition variables do not have a specific value so the count keeps track of the number of elements in the buffer. After executing the critical section, it signals the condition variable full to show that there is something in the buffer and it also unlocks the mutex. Similarly, the consumer function locks the mutex and waits for full to be signales if there is nothing  in the buffer. It then executes the critical section and updates the value of out and count and it stores the value of the buffer at location out in a variable called read. It then signals empty and unlocks the mutex.
